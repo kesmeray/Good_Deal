@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+<style>
+fieldset
+{
+  background-color:#003365;
+  max-width:500px;
+  padding:16px;	
+    margin-left: auto;
+  margin-right: auto;
+  width:200;
+}
+.actor {text-align: center;}
+
+.myButton {
+	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+	background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
+	background-color:#768d87;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:11px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+	background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
+	background-color:#6c7c7c;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+body
+{
+    background-image: url("http://bubaone.com/wp-content/uploads/2015/08/simple_skyline4.jpg");
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<fieldset>
+      <img src="http://biquettes.fr/blog/wp-content/uploads/2016/01/ob_8453b1_leboncoin-logo-eps-vector-image.png"  style="width:204px;height:60px;">
+  <h1> Welcome to real estate advisor !</h1>
+ 
+  <p> <b> Please write down the "leboncoin" link about your house or appartement </b></p>
+  
+  			<form methode="get" action="/process">
+	<input type="text" class="form-control" name="lbcUrl" placeholder="http://www.leboncoin.fr">
+	<button type="submit" class="myButton">Tell me</button>
+	
+	</form>
+  
+
+	</fieldset>
+
+       
+		<fieldset>
+		<legend><h2  style="color:white;"> Result </h2></legend>
+          <span><font style="font-size: 20pt;text-align:left;">
+		<b> City: </b> <%= data.lbcData.city.replace( /\_/g, '-' ) %>
+		 <br>
+		 <b>postal Code: </b> <%= data.lbcData.postalCode %>
+		  </font></span>
+		  <br>
+          <span><font style="font-size: 20pt;text-align:right;"> 
+	<b>	Price : </b> <%= data.lbcData.price %> $
+		<br>
+	<b>surface :</b> <%= data.lbcData.surface %> m2
+	<br>
+	<b>	Type : </b> <%= data.lbcData.type %>
+	<br>
+	<b>Average price for house :</b><%= data.maData.priceHouse %>
+	<br>
+	<b>Average price for appartement : </b> <%= data.maData.priceAppart %>
+	<br>
+	<b> is Good Deal ?: </b> <%= data.deal %>
+	
+	 </font></span>		
+		<br><br>
+				  
+		</fieldset>
+
+
+
+</body>
+
+</html>
